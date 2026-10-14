@@ -1,9 +1,9 @@
 import { resumeData } from '@/data/resume'
 import { Icon } from '@/components/ui'
-import './footer.css'
+import styles from './Footer.module.css'
 
 /**
- * 现代主流页脚组件
+ * 现代页脚组件 (CSS Modules)
  */
 export function Footer() {
   const year = new Date().getFullYear()
@@ -13,46 +13,46 @@ export function Footer() {
   }
 
   return (
-    <footer className="footer">
-      <div className="footer__inner">
-        <div className="footer__brand-side">
-          <div className="footer__logo-group">
-            <span className="footer__logo-badge">S</span>
+    <footer className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.brandSide}>
+          <div className={styles.logoGroup}>
+            <span className={styles.logoBadge}>S</span>
             <div>
-              <span className="footer__title">{resumeData.profile.name}</span>
-              <span className="footer__subtitle">Portfolio & Online CV</span>
+              <span className={styles.title}>{resumeData.profile.name}</span>
+              <span className={styles.subtitle}>Portfolio & Online CV</span>
             </div>
           </div>
-          <p className="footer__desc">
+          <p className={styles.desc}>
             “{resumeData.profile.tagline}”
           </p>
         </div>
 
-        <div className="footer__actions-side">
-          <div className="footer__links">
+        <div className={styles.actionsSide}>
+          <div className={styles.links}>
             <a
               href="https://github.com/Akiha678"
               target="_blank"
               rel="noreferrer"
-              className="footer__link"
+              className={styles.link}
             >
               <Icon name="github" size={16} />
               <span>GitHub</span>
             </a>
-            <a href={`mailto:${resumeData.contact.email}`} className="footer__link">
+            <a href={`mailto:${resumeData.contact.email}`} className={styles.link}>
               <Icon name="mail" size={16} />
               <span>Email</span>
             </a>
             <button
               type="button"
-              className="footer__link footer__top-btn"
+              className={`${styles.link} ${styles.topBtn}`}
               onClick={scrollToTop}
             >
               <span>回到顶部 ↑</span>
             </button>
           </div>
 
-          <p className="footer__copyright">
+          <p className={styles.copyright}>
             © {year} {resumeData.profile.name} (Akiha678). Built with React 19, TypeScript & Vite.
           </p>
         </div>

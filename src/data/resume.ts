@@ -16,18 +16,17 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   profile: {
-    name: 'SeanChen',
-    handle: 'Akiha678',
-    title: '跨平台与客户端全栈工程师',
+    name: '陈鑫',
+    handle: 'SeanChen',
+    title: '移动端开发工程师',
     tagline: '熬夜喝酒写代码，吃饱喝足打贝贝。',
     bio: '深耕跨平台与移动客户端架构。在 Android 原生 (Kotlin / Jetpack Compose / CameraX / JNI NDK)、iOS (Swift)、高性能跨端 (Flutter + Rust / Qt C++) 以及现代 Web 前端 (React 19 / TypeScript) 拥有全面的工程实践与开源沉淀。热衷于系统级性能优化、底层音视频/通信探索与高复用组件化体系搭建。',
     avatarUrl: 'https://avatars.githubusercontent.com/u/153362937?v=4',
     status: '开源活跃中 · 热爱技术探索',
     stats: [
       { label: '开源代码库', value: '8+ Repos' },
-      { label: '多端核心语言', value: '7+ 门语言' },
-      { label: '研发实验室', value: 'Smartlab411' },
-      { label: '常驻坐标', value: '中国 · 湖北' },
+      { label: '编程语言', value: 'Kotlin/Dart' },
+      { label: '期望城市', value: '全国可飞' },
     ],
     links: [
       { label: 'GitHub', url: 'https://github.com/Akiha678', icon: 'github' },

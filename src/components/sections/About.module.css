@@ -1,5 +1,4 @@
-/* 现代极客风“关于我”样式 */
-.about__container {
+.container {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-8);
@@ -7,14 +6,14 @@
 }
 
 @media (min-width: 900px) {
-  .about__container {
+  .container {
     grid-template-columns: 1fr 1.15fr;
     gap: var(--space-8);
   }
 }
 
 /* 终端窗口卡片 */
-.about__terminal {
+.terminal {
   background: #0d1117;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-xl);
@@ -24,7 +23,7 @@
   flex-direction: column;
 }
 
-.about__terminal-header {
+.terminalHeader {
   background: #161b22;
   padding: 10px 16px;
   display: flex;
@@ -33,30 +32,30 @@
   position: relative;
 }
 
-.about__terminal-dots {
+.terminalDots {
   display: flex;
   gap: 7px;
 }
 
-.about__dot {
+.dot {
   width: 11px;
   height: 11px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.about__dot--red { background-color: #ff5f56; }
-.about__dot--yellow { background-color: #ffbd2e; }
-.about__dot--green { background-color: #27c93f; }
+.dotRed { background-color: #ff5f56; }
+.dotYellow { background-color: #ffbd2e; }
+.dotGreen { background-color: #27c93f; }
 
-.about__terminal-title {
+.terminalTitle {
   margin: 0 auto;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: #8b949e;
 }
 
-.about__terminal-body {
+.terminalBody {
   padding: var(--space-5);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -65,47 +64,47 @@
   flex: 1;
 }
 
-.about__cmd-row {
+.cmdRow {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: 10px;
 }
 
-.about__cmd-row:first-child {
+.cmdRow:first-child {
   margin-top: 0;
 }
 
-.about__prompt {
+.prompt {
   color: #58a6ff;
   font-weight: 700;
 }
 
-.about__cmd {
+.cmd {
   color: #7ee787;
   font-weight: 600;
 }
 
-.about__output {
+.output {
   margin: 4px 0 10px 14px;
   color: #8b949e;
 }
 
-.about__output--quote {
+.outputQuote {
   border-left: 2px solid #a371f7;
   padding-left: 10px;
   margin: 6px 0 12px 14px;
   color: #e6edf3;
 }
 
-.about__output-highlight {
+.outputHighlight {
   display: block;
   color: #f0883e;
   font-weight: 600;
   margin-bottom: 4px;
 }
 
-.about__output-grid {
+.outputGrid {
   margin: 6px 0 12px 14px;
   display: flex;
   flex-direction: column;
@@ -113,13 +112,13 @@
   color: #79c0ff;
 }
 
-.about__dim {
+.dim {
   color: #8b949e;
   display: inline-block;
   width: 95px;
 }
 
-.about__cursor {
+.cursor {
   display: inline-block;
   width: 7px;
   height: 14px;
@@ -131,15 +130,15 @@
   50% { opacity: 0; }
 }
 
-/* 右侧技术与特性详情 */
-.about__details {
+/* 详情侧 */
+.details {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
   justify-content: space-between;
 }
 
-.about__card {
+.card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   padding: var(--space-6);
@@ -147,7 +146,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-.about__card-title {
+.cardTitle {
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -157,30 +156,30 @@
   margin-bottom: var(--space-3);
 }
 
-.about__card-icon {
+.cardIcon {
   color: var(--color-primary);
 }
 
-.about__card-text {
+.cardText {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: 1.7;
   margin: 0;
 }
 
-.about__features-grid {
+.featuresGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3);
 }
 
 @media (min-width: 520px) {
-  .about__features-grid {
+  .featuresGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.about__feature-item {
+.featureItem {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   padding: var(--space-4);
@@ -191,13 +190,13 @@
   transition: all var(--transition-fast);
 }
 
-.about__feature-item:hover {
+.featureItem:hover {
   border-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
 
-.about__feature-icon {
+.featureIcon {
   padding: 8px;
   border-radius: var(--radius-md);
   background: rgba(var(--color-primary-rgb), 0.1);
@@ -205,28 +204,27 @@
   flex-shrink: 0;
 }
 
-.about__feature-info h4 {
+.featureInfo h4 {
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 3px;
 }
 
-.about__feature-info p {
+.featureInfo p {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   line-height: 1.5;
   margin: 0;
 }
 
-/* 底部快速标签 */
-.about__quick-meta {
+.quickMeta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
 }
 
-.about__meta-chip {
+.metaChip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -236,13 +234,14 @@
   border: 1px solid var(--color-border);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
+  text-decoration: none;
 }
 
-.about__meta-chip a {
+.metaChip a {
   color: inherit;
 }
 
-.about__meta-chip:hover {
+.metaChip:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
 }

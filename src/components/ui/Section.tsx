@@ -1,5 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react'
-import './section.css'
+import { cn } from '@/core/utils/cn'
+import styles from './Section.module.css'
 
 export interface SectionProps extends HTMLAttributes<HTMLElement> {
   id: string
@@ -11,8 +12,7 @@ export interface SectionProps extends HTMLAttributes<HTMLElement> {
 }
 
 /**
- * 现代风格通用区块容器
- * 支持渐变徽标、主标题、英文/副标题以及自适应宽体排版
+ * 现代通用区块容器 (CSS Modules)
  */
 export function Section({
   id,
@@ -25,13 +25,13 @@ export function Section({
   ...rest
 }: SectionProps) {
   return (
-    <section id={id} className={`section ${className}`} {...rest}>
-      <div className="section__header">
-        {badge && <span className="section__badge">{badge}</span>}
-        <h2 className="section__title">{title}</h2>
-        {subtitle && <p className="section__subtitle">{subtitle}</p>}
+    <section id={id} className={cn(styles.section, className)} {...rest}>
+      <div className={styles.header}>
+        {badge && <span className={styles.badge}>{badge}</span>}
+        <h2 className={styles.title}>{title}</h2>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
-      <div className={`section__body ${fullWidth ? 'section__body--full' : ''}`}>
+      <div className={cn(styles.body, fullWidth && styles.bodyFull)}>
         {children}
       </div>
     </section>

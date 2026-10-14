@@ -1,8 +1,11 @@
-import { resumeData } from '@/data/resume'
 import { Section, Icon } from '@/components/ui'
-import './Skills.css'
+import type { Skill } from '@/types/resume'
+import styles from './Skills.module.css'
 
-// 类别图标映射
+export interface SkillsProps {
+  skills: Skill[]
+}
+
 const CATEGORY_ICONS: Record<string, 'terminal' | 'layers' | 'code' | 'compass'> = {
   '移动原生': 'terminal',
   '跨平台与系统': 'layers',
@@ -11,13 +14,9 @@ const CATEGORY_ICONS: Record<string, 'terminal' | 'layers' | 'code' | 'compass'>
 }
 
 /**
- * 现代主流技能矩阵区块
- * 涵盖多语言分类、熟练度指示进度槽与专业工程领域覆盖
+ * 现代技能矩阵组件 (CSS Modules)
  */
-export function Skills() {
-  const { skills } = resumeData
-
-  // 按分类聚类
+export function Skills({ skills }: SkillsProps) {
   const grouped = skills.reduce<Record<string, typeof skills>>((acc, skill) => {
     const category = skill.category ?? '综合技能'
     if (!acc[category]) {
@@ -35,33 +34,33 @@ export function Skills() {
       badge="Skills & Competencies"
       fullWidth
     >
-      <div className="skills__grid">
+      <div className={styles.grid}>
         {Object.entries(grouped).map(([category, list]) => {
           const iconName = CATEGORY_ICONS[category] || 'code'
 
           return (
-            <div key={category} className="skills__group">
-              <div className="skills__category-header">
-                <div className="skills__category-icon">
+            <div key={category} className={styles.group}>
+              <div className={styles.categoryHeader}>
+                <div className={styles.categoryIcon}>
                   <Icon name={iconName} size={18} />
                 </div>
-                <h3 className="skills__category-title">{category}</h3>
-                <span className="skills__category-count">{list.length} 项</span>
+                <h3 className={styles.categoryTitle}>{category}</h3>
+                <span className={styles.categoryCount}>{list.length} 项</span>
               </div>
 
-              <ul className="skills__list">
+              <ul className={styles.list}>
                 {list.map((skill) => (
-                  <li key={skill.name} className="skills__item">
-                    <div className="skills__row">
-                      <span className="skills__name">{skill.name}</span>
+                  <li key={skill.name} className={styles.item}>
+                    <div className={styles.row}>
+                      <span className={styles.name}>{skill.name}</span>
                       {skill.level != null && (
-                        <span className="skills__level-badge">{skill.level}%</span>
+                        <span className={styles.levelBadge}>{skill.level}%</span>
                       )}
                     </div>
                     {skill.level != null && (
-                      <div className="skills__track">
+                      <div className={styles.track}>
                         <div
-                          className="skills__fill"
+                          className={styles.fill}
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>

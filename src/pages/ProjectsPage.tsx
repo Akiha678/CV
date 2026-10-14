@@ -1,8 +1,10 @@
 import { Projects } from '@/components/sections'
+import { useResumeData } from '@/services/resumeService'
 
 /**
- * 项目经历页
+ * 项目经历独立页
  */
 export function ProjectsPage() {
-  return <Projects />
+  const { data } = useResumeData()
+  return <Projects projects={data.projects} />
 }

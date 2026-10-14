@@ -1,11 +1,10 @@
-/* 现代主流时间轴与经历样式 */
-.experience__wrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
 }
 
-.experience__timeline {
+.timeline {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
@@ -13,8 +12,7 @@
   padding-left: var(--space-8);
 }
 
-/* 垂直贯穿线 */
-.experience__timeline::before {
+.timeline::before {
   content: '';
   position: absolute;
   top: 14px;
@@ -28,21 +26,20 @@
   );
 }
 
-.experience__card {
+.card {
   position: relative;
   display: flex;
   gap: var(--space-6);
 }
 
-/* 时间轴节点 */
-.experience__node {
+.node {
   position: absolute;
   left: calc(-1 * var(--space-8) + 3px);
   top: 16px;
   z-index: 2;
 }
 
-.experience__pin {
+.pin {
   display: block;
   width: 18px;
   height: 18px;
@@ -52,15 +49,14 @@
   box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15);
 }
 
-.experience__pin.is-current {
+.isCurrent {
   border-color: var(--color-success);
   background-color: var(--color-success);
   box-shadow: 0 0 10px var(--color-success);
-  animation: pulse-dot 2s infinite;
+  animation: pulseDot 2s infinite;
 }
 
-/* 内容卡片 */
-.experience__content {
+.content {
   flex: 1;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -70,13 +66,13 @@
   transition: all var(--transition-fast);
 }
 
-.experience__content:hover {
+.content:hover {
   border-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.experience__header {
+.header {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -84,33 +80,33 @@
 }
 
 @media (min-width: 640px) {
-  .experience__header {
+  .header {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
   }
 }
 
-.experience__role {
+.role {
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 4px;
 }
 
-.experience__org-row {
+.orgRow {
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
 
-.experience__company {
+.company {
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-primary);
 }
 
-.experience__status-chip {
+.statusChip {
   display: inline-block;
   padding: 1px 8px;
   border-radius: var(--radius-full);
@@ -121,7 +117,7 @@
   border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
-.experience__date-badge {
+.dateBadge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -134,14 +130,14 @@
   align-self: flex-start;
 }
 
-.experience__summary {
+.summary {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin-bottom: var(--space-4);
 }
 
-.experience__bullets {
+.bullets {
   list-style: none;
   margin: 0 0 var(--space-4);
   padding: 0;
@@ -150,7 +146,7 @@
   gap: var(--space-2);
 }
 
-.experience__bullets li {
+.bullets li {
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
   line-height: 1.6;
@@ -158,7 +154,7 @@
   padding-left: 16px;
 }
 
-.experience__bullets li::before {
+.bullets li::before {
   content: '✦';
   position: absolute;
   left: 0;
@@ -167,14 +163,14 @@
   top: 1px;
 }
 
-.experience__tags {
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   padding-top: var(--space-2);
 }
 
-.experience__tag {
+.tag {
   font-size: 11px;
   font-family: var(--font-mono);
   color: var(--color-text-muted);
@@ -184,8 +180,8 @@
   border: 1px solid var(--color-border-subtle);
 }
 
-/* 教育背景区块 */
-.experience__edu-block {
+/* 教育背景 */
+.eduBlock {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
@@ -193,38 +189,38 @@
   box-shadow: var(--shadow-sm);
 }
 
-.experience__edu-header {
+.eduHeader {
   display: flex;
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
 }
 
-.experience__edu-icon {
+.eduIcon {
   color: var(--color-primary);
 }
 
-.experience__edu-header h3 {
+.eduHeader h3 {
   font-size: var(--text-base);
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
 }
 
-.experience__edu-grid {
+.eduGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
 }
 
-.experience__edu-card {
+.eduCard {
   padding: var(--space-4);
   background: var(--color-bg-alt);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border-subtle);
 }
 
-.experience__edu-main {
+.eduMain {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -232,18 +228,18 @@
   margin-bottom: 4px;
 }
 
-.experience__edu-school {
+.eduSchool {
   font-weight: 700;
   font-size: var(--text-sm);
   color: var(--color-text);
 }
 
-.experience__edu-major {
+.eduMajor {
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
 }
 
-.experience__edu-sub {
+.eduSub {
   display: flex;
   gap: var(--space-3);
   font-size: 11px;
@@ -252,9 +248,15 @@
   margin-bottom: 6px;
 }
 
-.experience__edu-desc {
+.eduDesc {
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
   line-height: 1.5;
   margin: 0;
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }

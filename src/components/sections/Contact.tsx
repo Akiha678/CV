@@ -1,29 +1,32 @@
 import { useState } from 'react'
-import { resumeData } from '@/data/resume'
 import { Section, Icon } from '@/components/ui'
-import './Contact.css'
+import { useToast } from '@/contexts'
+import type { Contact as ContactType, Profile } from '@/types/resume'
+import styles from './Contact.module.css'
+
+export interface ContactProps {
+  contact: ContactType
+  profile: Profile
+}
 
 /**
- * 现代主流联系区块
- * 涵盖一键复制邮箱、GitHub 主页直达与快速留言交互
+ * 现代联系区块组件 (CSS Modules)
  */
-export function Contact() {
-  const { profile, contact } = resumeData
-  const [copied, setCopied] = useState(false)
+export function Contact({ contact, profile }: ContactProps) {
+  const { showToast } = useToast()
   const [formSent, setFormSent] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contact.email)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+    showToast(`邮箱已成功复制: ${contact.email}`, 'success')
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!formData.name || !formData.email || !formData.message) return
-    // 模拟发送成功
     setFormSent(true)
+    showToast('留言已记录，感谢您的来信！', 'success')
     setTimeout(() => {
       setFormSent(false)
       setFormData({ name: '', email: '', message: '' })
@@ -38,34 +41,34 @@ export function Contact() {
       badge="Get In Touch"
       fullWidth
     >
-      <div className="contact__container">
+      <div className={styles.container}>
         {/* 左侧：即时联络通道卡片 */}
-        <div className="contact__info">
-          <p className="contact__intro">
+        <div className={styles.info}>
+          <p className={styles.intro}>
             无论您是有客户端/跨平台架构研发机会、音视频底层合作，还是想深入交流技术，欢迎随时与我联络！
           </p>
 
-          <div className="contact__cards">
+          <div className={styles.cards}>
             {/* 邮箱卡片 */}
-            <div className="contact__card">
-              <div className="contact__card-icon">
+            <div className={styles.card}>
+              <div className={styles.cardIcon}>
                 <Icon name="mail" size={20} />
               </div>
-              <div className="contact__card-body">
-                <span className="contact__card-label">电子邮箱</span>
-                <a href={`mailto:${contact.email}`} className="contact__card-value">
+              <div className={styles.cardBody}>
+                <span className={styles.cardLabel}>电子邮箱</span>
+                <a href={`mailto:${contact.email}`} className={styles.cardValue}>
                   {contact.email}
                 </a>
               </div>
               <button
                 type="button"
-                className="contact__copy-btn"
+                className={styles.copyBtn}
                 onClick={handleCopyEmail}
                 title="复制邮箱"
                 aria-label="复制邮箱"
               >
-                <Icon name={copied ? 'check' : 'copy'} size={16} />
-                <span>{copied ? '已复制' : '复制'}</span>
+                <Icon name="copy" size={15} />
+                <span>复制</span>
               </button>
             </div>
 
@@ -74,55 +77,55 @@ export function Contact() {
               href="https://github.com/Akiha678"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact__card contact__card--link"
+              className={styles.card}
             >
-              <div className="contact__card-icon">
+              <div className={styles.cardIcon}>
                 <Icon name="github" size={20} />
               </div>
-              <div className="contact__card-body">
-                <span className="contact__card-label">GitHub Profile</span>
-                <span className="contact__card-value">github.com/Akiha678</span>
+              <div className={styles.cardBody}>
+                <span className={styles.cardLabel}>GitHub Profile</span>
+                <span className={styles.cardValue}>github.com/Akiha678</span>
               </div>
-              <Icon name="arrow-up-right" size={16} className="contact__arrow-icon" />
+              <Icon name="arrow-up-right" size={16} className={styles.arrowIcon} />
             </a>
 
             {/* 实验室与常驻地 */}
-            <div className="contact__meta-row">
-              <div className="contact__mini-chip">
+            <div className={styles.metaRow}>
+              <div className={styles.miniChip}>
                 <Icon name="location" size={15} />
                 <span>{contact.location}</span>
               </div>
-              <div className="contact__mini-chip">
+              <div className={styles.miniChip}>
                 <Icon name="layers" size={15} />
                 <span>研发实验室：Smartlab411</span>
               </div>
             </div>
           </div>
 
-          <div className="contact__quote-tip">
-            <span className="contact__tip-dot" />
+          <div className={styles.quoteTip}>
+            <span className={styles.tipDot} />
             <span>“{profile.tagline}” —— 代码即生活，期待与卓越同行！</span>
           </div>
         </div>
 
         {/* 右侧：快速在线致信表单 */}
-        <div className="contact__form-panel">
-          <h3 className="contact__form-title">
-            <Icon name="sparkles" size={18} className="contact__form-title-icon" />
+        <div className={styles.formPanel}>
+          <h3 className={styles.formTitle}>
+            <Icon name="sparkles" size={18} className={styles.formTitleIcon} />
             发送快速留言
           </h3>
 
           {formSent ? (
-            <div className="contact__success-state">
-              <div className="contact__success-icon">
+            <div className={styles.successState}>
+              <div className={styles.successIcon}>
                 <Icon name="check" size={28} />
               </div>
               <h4>留言已就绪！</h4>
               <p>感谢您的来信，消息已记录并准备直通 SeanChen 的工作信箱。</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="contact__form">
-              <div className="contact__field">
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.field}>
                 <label htmlFor="contact-name">您的称呼 / 组织</label>
                 <input
                   id="contact-name"
@@ -134,7 +137,7 @@ export function Contact() {
                 />
               </div>
 
-              <div className="contact__field">
+              <div className={styles.field}>
                 <label htmlFor="contact-email">联系邮箱</label>
                 <input
                   id="contact-email"
@@ -146,7 +149,7 @@ export function Contact() {
                 />
               </div>
 
-              <div className="contact__field">
+              <div className={styles.field}>
                 <label htmlFor="contact-message">留言或合作意向</label>
                 <textarea
                   id="contact-message"
@@ -158,7 +161,7 @@ export function Contact() {
                 />
               </div>
 
-              <button type="submit" className="contact__submit-btn">
+              <button type="submit" className={styles.submitBtn}>
                 <Icon name="mail" size={16} />
                 <span>发送留言</span>
               </button>
