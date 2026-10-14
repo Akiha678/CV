@@ -10,6 +10,8 @@
 export interface Profile {
   /** 姓名 */
   name: string
+  /** GitHub Handle 或昵称 */
+  handle?: string
   /** 求职/展示用的职称 */
   title: string
   /** 一句话介绍/标语 */
@@ -18,6 +20,10 @@ export interface Profile {
   bio: string
   /** 头像/形象图片地址（相对 public 或外链） */
   avatarUrl?: string
+  /** 状态标签，如 "Available for opportunities" */
+  status?: string
+  /** 快捷指标统计 */
+  stats?: { label: string; value: string }[]
   /** 第三方社交/作品链接 */
   links: ProfileLink[]
 }
@@ -59,6 +65,12 @@ export interface Project {
   name: string
   /** 一句话描述 */
   description: string
+  /** 项目类别 */
+  category?: 'Mobile' | 'CrossPlatform' | 'Desktop' | 'Web' | 'Library' | 'All'
+  /** 主要开发语言 */
+  language?: string
+  /** Star 数量 */
+  stars?: number
   /** 项目详情/亮点 */
   details?: string[]
   /** 技术栈关键词 */

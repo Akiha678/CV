@@ -1,34 +1,53 @@
 /**
- * 设计令牌 (Design Tokens)
- *
- * 集中管理颜色、字体、间距、圆角等设计元数据，
- * 供全局样式与组件使用。修改主题仅需改动此处。
+ * 现代设计令牌 (Modern Design Tokens)
+ * 采用目前主流的高级暗黑/清爽明亮双主题系统，融合科技感光晕、玻璃拟态与流式排版。
  */
+
 :root {
-  /* 色板 */
+  /* 品牌核心色与渐变 */
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
+  --color-primary-rgb: 59, 130, 246;
   --color-primary-contrast: #ffffff;
 
-  --color-bg: #ffffff;
-  --color-surface: #f8fafc;
-  --color-border: #e2e8f0;
+  --color-accent: #8b5cf6;
+  --color-accent-rgb: 139, 92, 246;
+  --color-cyan: #06b6d4;
+  --color-emerald: #10b981;
+  --color-amber: #f59e0b;
+  --color-rose: #f43f5e;
 
+  /* 基础底色（浅色模式） */
+  --color-bg: #f8fafc;
+  --color-bg-alt: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8fafc;
+  --color-surface-glass: rgba(255, 255, 255, 0.8);
+  --color-border: #e2e8f0;
+  --color-border-subtle: #edf2f7;
+  --color-border-hover: #cbd5e1;
+
+  /* 文字颜色 */
   --color-text: #0f172a;
   --color-text-secondary: #475569;
   --color-text-muted: #64748b;
+  --color-text-contrast: #ffffff;
 
-  --color-accent: #8b5cf6;
+  /* 状态与指示器 */
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
 
-  /* 字体 */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC',
-    'Microsoft YaHei', sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  /* 渐变预设 */
+  --gradient-brand: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
 
-  /* 字号 */
+  /* 字体族 */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* 字号分级 */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -37,56 +56,85 @@
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
 
   /* 间距 */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-20: 5rem;
 
   /* 圆角 */
-  --radius-sm: 0.25rem;
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
   --radius-full: 9999px;
 
-  /* 阴影 */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  /* 现代多层柔和投影 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 25px rgba(59, 130, 246, 0.25);
 
-  /* 布局 */
-  --container-max: 1120px;
-  --header-height: 64px;
-  --section-gap: var(--space-16);
+  /* 布局控制 */
+  --container-max: 1160px;
+  --header-height: 72px;
+  --section-gap: var(--space-20);
 
-  /* 过渡 */
-  --transition-fast: 150ms ease;
-  --transition-normal: 250ms ease;
+  /* 动效与过渡 */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Z-index 层级 */
+  /* 层级 */
   --z-header: 100;
   --z-modal: 1000;
+  --z-toast: 2000;
 }
 
-/* 暗色模式 */
+/* 现代极客深色模式 (Linear / GitHub Dark Inspired) */
 :root.dark {
   --color-primary: #60a5fa;
   --color-primary-hover: #93c5fd;
+  --color-primary-rgb: 96, 165, 250;
 
-  --color-bg: #0b1120;
-  --color-surface: #111827;
-  --color-border: #1f2937;
+  --color-accent: #a78bfa;
+  --color-accent-rgb: 167, 139, 250;
 
-  --color-text: #f3f4f6;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #94a3b8;
+  /* 深邃且富有层次的底色 */
+  --color-bg: #090d16;
+  --color-bg-alt: #0e1320;
+  --color-surface: #111726;
+  --color-surface-hover: #182236;
+  --color-surface-glass: rgba(17, 23, 38, 0.78);
+  --color-border: rgba(255, 255, 255, 0.09);
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-hover: rgba(96, 165, 250, 0.35);
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+  /* 文字颜色 */
+  --color-text: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+
+  /* 投影与光晕 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 24px 38px -6px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 30px rgba(96, 165, 250, 0.2);
+
+  --gradient-brand: linear-gradient(135deg, #60a5fa 0%, #c084fc 50%, #22d3ee 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(22, 30, 48, 0.85) 0%, rgba(17, 23, 38, 0.8) 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
 }

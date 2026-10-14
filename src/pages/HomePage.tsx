@@ -1,16 +1,18 @@
-import { Hero, About, Experience, Skills } from '@/components/sections'
+import { Hero, About, Projects, Skills, Experience, Contact } from '@/components/sections'
 
 /**
- * 介绍页（首页）
- * 聚合个人简介、工作经历与技能栈。
+ * 介绍主页
+ * 聚合 Hero 首屏、关于我、开源项目矩阵、技能栈、研发经历与快速联系
  */
 export function HomePage() {
   return (
     <>
       <Hero />
       <About />
-      <Experience />
+      <Projects />
       <Skills />
+      <Experience />
+      <Contact />
     </>
   )
 }
