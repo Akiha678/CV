@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { NAV_ITEMS } from '@/config/navigation'
-import { useThemeContext, useToast } from '@/contexts'
+import { useThemeContext } from '@/contexts'
 import { Icon } from '@/components/ui'
 import { resumeData } from '@/data/resume'
 import styles from './Header.module.css'
 
 /**
  * 现代主流毛玻璃悬浮导航栏 (CSS Modules)
+ * 已按要求移除顶部导出按钮
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { resolved, toggle } = useThemeContext()
-  const { showToast } = useToast()
   const isDark = resolved === 'dark'
   const navigate = useNavigate()
 
@@ -34,11 +34,6 @@ export function Header() {
     }
   }, [menuOpen])
 
-  const handlePrint = () => {
-    showToast('已唤起简历打印与 PDF 保存窗口', 'info')
-    window.print()
-  }
-
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.wrapper}>
@@ -51,8 +46,8 @@ export function Header() {
             onClick={() => setMenuOpen(false)}
           >
             <div className={styles.avatarBadge}>
-              <span>S</span>
-              <span className={styles.statusDot} title="活跃开发中" />
+              <span>陈</span>
+              <span className={styles.statusDot} title="求职意向：移动端开发工程师" />
             </div>
             <div className={styles.brandInfo}>
               <span className={styles.name}>{resumeData.profile.name}</span>
@@ -77,19 +72,8 @@ export function Header() {
             ))}
           </ul>
 
-          {/* 交互动作栏 */}
+          {/* 交互动作栏（已移除导出按钮） */}
           <div className={styles.actions}>
-            <button
-              type="button"
-              className={styles.actionBtn}
-              onClick={handlePrint}
-              title="打印或保存为 PDF 简历"
-              aria-label="打印简历"
-            >
-              <Icon name="print" size={17} />
-              <span className={styles.actionBtnText}>导出</span>
-            </button>
-
             <a
               href="https://github.com/Akiha678"
               target="_blank"
@@ -118,7 +102,7 @@ export function Header() {
               onClick={() => navigate('/contact')}
             >
               <Icon name="mail" size={15} />
-              <span>联系</span>
+              <span>联系我</span>
             </button>
 
             <button
@@ -167,14 +151,13 @@ export function Header() {
                 <Icon name="github" size={18} />
                 <span>GitHub @Akiha678</span>
               </a>
-              <button
-                type="button"
+              <a
+                href="mailto:seanchenxin@dingtalk.com"
                 className={styles.mobileActionItem}
-                onClick={handlePrint}
               >
-                <Icon name="print" size={18} />
-                <span>打印 / 导出 PDF 简历</span>
-              </button>
+                <Icon name="mail" size={18} />
+                <span>发送邮件 seanchenxin@dingtalk.com</span>
+              </a>
             </div>
           </div>
         </div>

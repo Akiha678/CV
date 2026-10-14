@@ -9,13 +9,14 @@ export interface AboutProps {
 
 /**
  * 现代极客风“关于我”组件 (CSS Modules)
+ * 聚焦移动端开发工程师定位 (Android / Flutter / Kotlin / Dart)
  */
 export function About({ profile, contact }: AboutProps) {
   return (
     <Section
       id="about"
-      title="关于我与开发哲学"
-      subtitle="Geek Profile & Engineering Philosophy"
+      title="关于我与技术体系"
+      subtitle="移动端开发工程师 · 专注 Android 原生与 Flutter 跨平台架构设计"
       badge="About Me"
       fullWidth
     >
@@ -28,7 +29,7 @@ export function About({ profile, contact }: AboutProps) {
               <span className={`${styles.dot} ${styles.dotYellow}`} />
               <span className={`${styles.dot} ${styles.dotGreen}`} />
             </div>
-            <span className={styles.terminalTitle}>seanchen@smartlab411:~</span>
+            <span className={styles.terminalTitle}>chenxin@mobile-engineer:~</span>
           </div>
 
           <div className={styles.terminalBody}>
@@ -37,7 +38,7 @@ export function About({ profile, contact }: AboutProps) {
               <span className={styles.cmd}>whoami</span>
             </div>
             <p className={styles.output}>
-              &gt; {profile.name} (@{profile.handle}) - {profile.title}
+              &gt; {profile.name} ({profile.handle}) - {profile.title}
             </p>
 
             <div className={styles.cmdRow}>
@@ -46,19 +47,19 @@ export function About({ profile, contact }: AboutProps) {
             </div>
             <div className={`${styles.output} ${styles.outputQuote}`}>
               <span className={styles.outputHighlight}>“{profile.tagline}”</span>
-              <p>坚持以底层性能为基石，以极客美学为驱动；坚信优秀的工程不仅要跑得快，更要写得漂亮、读得舒心。</p>
+              <p>深耕移动端架构。坚持扎实的底层功底与声明式 UI 最佳实践，追求流畅的交互体验与高可靠的软硬件通信链路。</p>
             </div>
 
             <div className={styles.cmdRow}>
               <span className={styles.prompt}>$</span>
-              <span className={styles.cmd}>neofetch --brief</span>
+              <span className={styles.cmd}>neofetch --profile</span>
             </div>
             <div className={`${styles.output} ${styles.outputGrid}`}>
-              <div><span className={styles.dim}>OS:</span> Android · macOS · Windows · Linux</div>
-              <div><span className={styles.dim}>Languages:</span> Kotlin, Swift, Rust, C++, TS, Dart</div>
-              <div><span className={styles.dim}>Lab:</span> Smartlab411 Research Team</div>
-              <div><span className={styles.dim}>Location:</span> {contact.location ?? '湖北 (HuBei), China'}</div>
-              <div><span className={styles.dim}>OpenSource:</span> 8+ Repositories & Growing</div>
+              <div><span className={styles.dim}>Education:</span> {profile.school ?? '荆州学院'} · {profile.major ?? '软件工程（本科）'}</div>
+              <div><span className={styles.dim}>Graduation:</span> {profile.graduation ?? '2027年6月毕业'}</div>
+              <div><span className={styles.dim}>TargetCity:</span> {profile.targetCity ?? '全国可飞'}</div>
+              <div><span className={styles.dim}>TechStack:</span> Kotlin, Dart, Flutter, Compose, BLE</div>
+              <div><span className={styles.dim}>OpenSource:</span> GitHub @Akiha678 (8+ Repos)</div>
             </div>
 
             <div className={styles.cmdRow}>
@@ -68,15 +69,15 @@ export function About({ profile, contact }: AboutProps) {
           </div>
         </div>
 
-        {/* 右侧：专业背景与核心关注点 */}
+        {/* 右侧：移动端专业能力矩阵 */}
         <div className={styles.details}>
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>
               <Icon name="sparkles" size={18} className={styles.cardIcon} />
-              架构与技术理念
+              移动端核心架构能力
             </h3>
             <p className={styles.cardText}>
-              专注于跨端与原生深度结合。善于在业务复杂度与代码整洁度之间取得平衡，主张推行响应式编程范式、强类型约束与模块化设计。通过持续开源输出，不断锤炼高内聚的组件库与应用框架。
+              熟练掌握 Kotlin 与 Dart，精通 Flutter 跨平台框架，拥有成熟的 Android 与 Flutter 混合开发实战经验。深入理解 MVVM 与 Clean Architecture 分层思想，善于利用 Coroutines / Flow 实现响应式异步编程，具备扎实的 BLE 蓝牙通信、瓦片地图绘制与性能卡顿（Jank Frame / 重组）调优能力。
             </p>
           </div>
 
@@ -86,8 +87,8 @@ export function About({ profile, contact }: AboutProps) {
                 <Icon name="terminal" size={20} />
               </div>
               <div className={styles.featureInfo}>
-                <h4>底层与系统调用</h4>
-                <p>JNI / NDK、Rust FFI 与 C++ 硬件/图像管线集成</p>
+                <h4>Android 原生与四大组件</h4>
+                <p>Jetpack Compose、Room、Hilt、生命周期及后台任务管理</p>
               </div>
             </div>
 
@@ -96,8 +97,8 @@ export function About({ profile, contact }: AboutProps) {
                 <Icon name="layers" size={20} />
               </div>
               <div className={styles.featureInfo}>
-                <h4>跨平台与多端对齐</h4>
-                <p>Flutter + Rust、Qt C++ 与 iOS/Android 双端协议统一</p>
+                <h4>Flutter 跨端与混合开发</h4>
+                <p>Method Channel 原生插件封装、Provider / go_router 状态路由</p>
               </div>
             </div>
 
@@ -106,8 +107,8 @@ export function About({ profile, contact }: AboutProps) {
                 <Icon name="code" size={20} />
               </div>
               <div className={styles.featureInfo}>
-                <h4>现代 Web 与声明式 UI</h4>
-                <p>Jetpack Compose、SwiftUI、React 19 全体系落地</p>
+                <h4>硬件联动与网络通信</h4>
+                <p>BLE 蓝牙闭环控制、OkHttp/Retrofit 封装、WebSocket 长连接</p>
               </div>
             </div>
 
@@ -116,8 +117,8 @@ export function About({ profile, contact }: AboutProps) {
                 <Icon name="compass" size={20} />
               </div>
               <div className={styles.featureInfo}>
-                <h4>工程化与敏捷交付</h4>
-                <p>CMake 构建规范、模块化组件封装与 CI/CD 自动化</p>
+                <h4>性能分析与工程规范</h4>
+                <p>System Trace 卡顿分析、瓦片地图异步缓存、组件化解耦</p>
               </div>
             </div>
           </div>
@@ -126,12 +127,18 @@ export function About({ profile, contact }: AboutProps) {
           <div className={styles.quickMeta}>
             <div className={styles.metaChip}>
               <Icon name="location" size={14} />
-              <span>{contact.location}</span>
+              <span>期望工作地：{profile.targetCity ?? '全国可飞'}</span>
             </div>
             <div className={styles.metaChip}>
               <Icon name="mail" size={14} />
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
             </div>
+            {contact.phone && (
+              <div className={styles.metaChip}>
+                <Icon name="phone" size={14} />
+                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+              </div>
+            )}
             <a
               href="https://github.com/Akiha678"
               target="_blank"

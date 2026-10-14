@@ -1,26 +1,27 @@
 import { Section, Icon } from '@/components/ui'
-import type { Education, Experience as ExperienceType } from '@/types/resume'
+import type { Education, Experience as ExperienceType, Honor } from '@/types/resume'
 import styles from './Experience.module.css'
 
 export interface ExperienceProps {
   experiences: ExperienceType[]
   education: Education[]
+  honors?: Honor[]
 }
 
 /**
- * 现代研发经历时间轴组件 (CSS Modules)
+ * 现代研发经历与荣誉资质时间轴组件 (CSS Modules)
  */
-export function Experience({ experiences, education }: ExperienceProps) {
+export function Experience({ experiences, education, honors = [] }: ExperienceProps) {
   return (
     <Section
       id="experience"
-      title="研发经历与实践沉淀"
-      subtitle="Engineering Journey, Research Experience & Milestones"
-      badge="Career & Timeline"
+      title="工作经历与专业沉淀"
+      subtitle="深入企业移动端开发实战，涵盖 BLE 硬件联动、瓦片地图离线渲染与大型自适应客户端架构。"
+      badge="Work & Career"
       fullWidth
     >
       <div className={styles.wrapper}>
-        {/* 时间轴主体 */}
+        {/* 时间轴主体：工作实习经历 */}
         <div className={styles.timeline}>
           {experiences.map((exp) => (
             <article key={exp.id} className={styles.card}>
@@ -35,7 +36,7 @@ export function Experience({ experiences, education }: ExperienceProps) {
                     <div className={styles.orgRow}>
                       <span className={styles.company}>{exp.company}</span>
                       {exp.current && (
-                        <span className={styles.statusChip}>进行中</span>
+                        <span className={styles.statusChip}>在职实习</span>
                       )}
                     </div>
                   </div>
@@ -72,6 +73,26 @@ export function Experience({ experiences, education }: ExperienceProps) {
           ))}
         </div>
 
+        {/* 荣誉证书、竞赛奖项与专利软著 */}
+        {honors.length > 0 && (
+          <div className={styles.honorsBlock}>
+            <div className={styles.honorsHeader}>
+              <Icon name="star" size={18} className={styles.honorsIcon} />
+              <h3>荣誉奖项、发明专利与软件著作权</h3>
+            </div>
+
+            <div className={styles.honorsGrid}>
+              {honors.map((h) => (
+                <div key={h.id} className={styles.honorCard}>
+                  <span className={styles.honorDate}>{h.date}</span>
+                  <span className={styles.honorTitle}>{h.title}</span>
+                  {h.detail && <p className={styles.honorDetail}>{h.detail}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* 教育背景 */}
         {education.length > 0 && (
           <div className={styles.eduBlock}>
@@ -85,10 +106,9 @@ export function Experience({ experiences, education }: ExperienceProps) {
                 <div key={edu.id} className={styles.eduCard}>
                   <div className={styles.eduMain}>
                     <span className={styles.eduSchool}>{edu.school}</span>
-                    <span className={styles.eduMajor}>{edu.major}</span>
+                    <span className={styles.eduMajor}>{edu.major}（{edu.degree}）</span>
                   </div>
                   <div className={styles.eduSub}>
-                    <span className={styles.eduDegree}>{edu.degree}</span>
                     <span className={styles.eduDate}>
                       {edu.startDate} – {edu.endDate}
                     </span>

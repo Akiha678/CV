@@ -1,52 +1,49 @@
-.filterBar {
+/* 一级项目类型切换器 */
+.typeTabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
-  padding-bottom: var(--space-2);
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding: 4px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  width: fit-content;
 }
 
-.filterBtn {
+.typeTab {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
+  padding: 8px 20px;
+  border-radius: var(--radius-xl);
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-text-secondary);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
   cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.filterBtn:hover {
+.typeTab:hover {
   color: var(--color-text);
-  border-color: var(--color-border-hover);
-  background: var(--color-surface-hover);
 }
 
-.filterBtnActive {
-  background: rgba(var(--color-primary-rgb), 0.12);
+.typeTabActive {
+  background: var(--color-surface);
   color: var(--color-primary);
-  border-color: var(--color-primary);
-  box-shadow: 0 0 12px rgba(var(--color-primary-rgb), 0.15);
+  box-shadow: var(--shadow-sm);
 }
 
-.filterCount {
+.typeTabBadge {
   display: inline-block;
-  padding: 1px 7px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
-  font-size: 10px;
-  background: var(--color-bg-alt);
-  color: var(--color-text-muted);
+  font-size: 11px;
   font-family: var(--font-mono);
-}
-
-.filterBtnActive .filterCount {
-  background: var(--color-primary);
-  color: #ffffff;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
 }
 
 /* 栅格 */
@@ -56,20 +53,170 @@
   gap: var(--space-6);
 }
 
+@media (min-width: 900px) {
+  .gridInternship {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 768px) {
-  .grid {
+  .gridOpenSource {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1100px) {
-  .grid {
+  .gridOpenSource {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* 卡片 */
-.card {
+/* 实习项目专属大卡片 */
+.internshipCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.internshipCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-brand);
+}
+
+.internshipCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.internshipHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .internshipHeader {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.internshipTitleRow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.internshipName {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.internshipCompany {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.internshipRoleBadge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+}
+
+.internshipPeriod {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  background: var(--color-bg-alt);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+}
+
+.internshipDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-5);
+}
+
+/* 核心职责功能列表 */
+.respList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .respList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.respItem {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.respTitle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.respTitle::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+.respContent {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 开源项目卡片样式 */
+.openCard {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
@@ -82,7 +229,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-.card::before {
+.openCard::before {
   content: '';
   position: absolute;
   top: 0;
@@ -94,24 +241,24 @@
   transition: opacity var(--transition-normal);
 }
 
-.card:hover {
+.openCard:hover {
   border-color: var(--color-primary);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
-.card:hover::before {
+.openCard:hover::before {
   opacity: 1;
 }
 
-.cardHeader {
+.openCardHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-4);
 }
 
-.headerLeft {
+.openHeaderLeft {
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -151,12 +298,6 @@
   background: rgba(245, 158, 11, 0.1);
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
 .linkBtn {
   display: inline-flex;
   align-items: center;
@@ -176,13 +317,13 @@
   transform: scale(1.06);
 }
 
-.cardBody {
+.openCardBody {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.name {
+.openName {
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
@@ -190,14 +331,14 @@
   letter-spacing: -0.01em;
 }
 
-.description {
+.openDesc {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin-bottom: var(--space-4);
 }
 
-.details {
+.openDetails {
   list-style: none;
   margin: 0 0 var(--space-5);
   padding: 0;
@@ -206,7 +347,7 @@
   gap: var(--space-2);
 }
 
-.details li {
+.openDetails li {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   line-height: 1.5;
@@ -214,7 +355,7 @@
   padding-left: 14px;
 }
 
-.details li::before {
+.openDetails li::before {
   content: '▸';
   position: absolute;
   left: 0;
@@ -222,6 +363,7 @@
   font-weight: 700;
 }
 
+/* 标签通用栏 */
 .cardFooter {
   margin-top: auto;
   padding-top: var(--space-4);
@@ -242,10 +384,11 @@
   padding: 2px 8px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border-subtle);
-  transition: all var(--transition-fast);
 }
 
-.card:hover .tag {
-  border-color: var(--color-border);
-  color: var(--color-text-secondary);
+.tagPrimary {
+  color: var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.08);
+  border-color: rgba(var(--color-primary-rgb), 0.2);
+  font-weight: 600;
 }

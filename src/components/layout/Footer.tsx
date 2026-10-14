@@ -17,10 +17,10 @@ export function Footer() {
       <div className={styles.inner}>
         <div className={styles.brandSide}>
           <div className={styles.logoGroup}>
-            <span className={styles.logoBadge}>S</span>
+            <span className={styles.logoBadge}>陈</span>
             <div>
-              <span className={styles.title}>{resumeData.profile.name}</span>
-              <span className={styles.subtitle}>Portfolio & Online CV</span>
+              <span className={styles.title}>{resumeData.profile.name} (SeanChen)</span>
+              <span className={styles.subtitle}>移动端开发工程师 · 荆州学院本科</span>
             </div>
           </div>
           <p className={styles.desc}>
@@ -43,6 +43,10 @@ export function Footer() {
               <Icon name="mail" size={16} />
               <span>Email</span>
             </a>
+            <a href={`tel:${resumeData.contact.phone}`} className={styles.link}>
+              <Icon name="phone" size={16} />
+              <span>电话</span>
+            </a>
             <button
               type="button"
               className={`${styles.link} ${styles.topBtn}`}
@@ -53,7 +57,7 @@ export function Footer() {
           </div>
 
           <p className={styles.copyright}>
-            © {year} {resumeData.profile.name} (Akiha678). Built with React 19, TypeScript & Vite.
+            © {year} {resumeData.profile.name} (SeanChen · Akiha678). All rights reserved.
           </p>
         </div>
       </div>

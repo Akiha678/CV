@@ -10,11 +10,11 @@ export function HomePage() {
 
   return (
     <>
-      <Hero profile={data.profile} email={data.contact.email} />
+      <Hero profile={data.profile} email={data.contact.email} phone={data.contact.phone} />
       <About profile={data.profile} contact={data.contact} />
       <Projects projects={data.projects} />
       <Skills skills={data.skills} />
-      <Experience experiences={data.experiences} education={data.education} />
+      <Experience experiences={data.experiences} education={data.education} honors={data.honors} />
       <Contact contact={data.contact} profile={data.profile} />
     </>
   )
