@@ -65,7 +65,7 @@ export function Hero({ profile, email, phone }: HeroProps) {
             </span>
             <span className={styles.metaPill}>
               <Icon name="location" size={14} />
-              <span>期望工作地：{profile.targetCity ?? '全国可飞'}</span>
+              <span>现居：{profile.location ?? '苏州'} · 期望：{profile.targetCity ?? '全国可飞'}</span>
             </span>
           </div>
 

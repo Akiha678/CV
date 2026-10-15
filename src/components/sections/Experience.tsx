@@ -53,9 +53,20 @@ export function Experience({ experiences, education, honors = [] }: ExperiencePr
 
                 {exp.bullets && exp.bullets.length > 0 && (
                   <ul className={styles.bullets}>
-                    {exp.bullets.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
+                    {exp.bullets.map((point, i) => {
+                      const colonIdx = point.indexOf('：')
+                      if (colonIdx > 0 && colonIdx < 14) {
+                        const title = point.slice(0, colonIdx)
+                        const desc = point.slice(colonIdx + 1)
+                        return (
+                          <li key={i}>
+                            <strong>{title}：</strong>
+                            <span>{desc}</span>
+                          </li>
+                        )
+                      }
+                      return <li key={i}>{point}</li>
+                    })}
                   </ul>
                 )}
 

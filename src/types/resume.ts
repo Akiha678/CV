@@ -23,6 +23,8 @@ export interface Profile {
   major?: string
   /** 毕业时间 */
   graduation?: string
+  /** 现居/常驻城市 */
+  location?: string
   /** 期望城市 */
   targetCity?: string
   /** 快捷指标统计 */

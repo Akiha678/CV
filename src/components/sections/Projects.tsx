@@ -10,6 +10,7 @@ export interface ProjectsProps {
 type ProjectTypeTab = 'all' | 'internship' | 'opensource'
 
 const LANGUAGE_COLORS: Record<string, string> = {
+  Dart: '#00B4AB',
   Kotlin: '#A97BFF',
   Swift: '#F05138',
   'Dart / Kotlin': '#00B4AB',
@@ -93,6 +94,15 @@ export function Projects({ projects }: ProjectsProps) {
                     )}
                     {project.role && (
                       <span className={styles.internshipRoleBadge}>{project.role}</span>
+                    )}
+                    {project.language && (
+                      <span className={styles.langPill}>
+                        <span
+                          className={styles.langDot}
+                          style={{ backgroundColor: LANGUAGE_COLORS[project.language] || '#00B4AB' }}
+                        />
+                        <span>{project.language}</span>
+                      </span>
                     )}
                   </div>
 

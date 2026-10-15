@@ -7,6 +7,10 @@ export interface SkillsProps {
 }
 
 const CATEGORY_ICONS: Record<string, 'terminal' | 'layers' | 'code' | 'compass'> = {
+  '语言与跨平台': 'layers',
+  'Android 原生与架构': 'terminal',
+  '网络封装与通信': 'code',
+  '工程化与性能调优': 'compass',
   '移动原生': 'terminal',
   '跨平台与系统': 'layers',
   'Web & 全栈': 'code',

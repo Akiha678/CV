@@ -163,6 +163,11 @@
   top: 1px;
 }
 
+.bullets strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;

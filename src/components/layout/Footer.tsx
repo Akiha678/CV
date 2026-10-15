@@ -39,6 +39,15 @@ export function Footer() {
               <Icon name="github" size={16} />
               <span>GitHub</span>
             </a>
+            <a
+              href="https://juejin.cn/user/1502355831661744"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.link}
+            >
+              <Icon name="document" size={16} />
+              <span>掘金</span>
+            </a>
             <a href={`mailto:${resumeData.contact.email}`} className={styles.link}>
               <Icon name="mail" size={16} />
               <span>Email</span>

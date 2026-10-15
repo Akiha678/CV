@@ -32,11 +32,17 @@ export const resumeService = {
     }
 
     if (ghRepos && ghRepos.length > 0) {
-      // 动态对齐各项目的 star 数与链接
+      // 动态对齐各开源项目的 star 数与源码链接（仅针对开源项目，保障实习项目独立完整）
       clone.projects = clone.projects.map((proj) => {
+        if (proj.projectType !== 'opensource') {
+          return proj
+        }
+
         const matched = ghRepos.find(
-          (r) => r.name.toLowerCase() === proj.name.toLowerCase() ||
-                 (r.name.toLowerCase() === 'xinchat' && proj.name.includes('XinChat'))
+          (r) =>
+            r.name.toLowerCase() === proj.name.toLowerCase() ||
+            (r.name.toLowerCase() === 'xinchat' && proj.name === 'XinChat') ||
+            (r.name.toLowerCase() === 'xinchat_swift' && proj.name === 'XinChat_Swift')
         )
         if (matched) {
           return {
