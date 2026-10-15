@@ -211,7 +211,54 @@
   box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15);
 }
 
+/* 快捷意向岗位标签 */
+.roleChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.roleChip {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.roleChip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.roleChipActive {
+  background: rgba(var(--color-primary-rgb), 0.12);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* 操作按钮组 */
+.actionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 500px) {
+  .actionGroup {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 .submitBtn {
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -223,30 +270,68 @@
   background: var(--gradient-brand);
   color: #ffffff;
   border: none;
-  margin-top: var(--space-2);
-  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.3);
+  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.25);
   transition: all var(--transition-fast);
   cursor: pointer;
 }
 
-.submitBtn:hover {
+.submitBtn:hover:not(:disabled) {
   opacity: 0.94;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(var(--color-primary-rgb), 0.45);
+  box-shadow: 0 6px 18px rgba(var(--color-primary-rgb), 0.35);
 }
 
-.successState {
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 16px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.outlineBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-surface-hover);
+}
+
+.helperTip {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 成功与反馈面板 */
+.feedbackState {
   text-align: center;
   padding: var(--space-8) var(--space-4);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
-.successIcon {
-  width: 54px;
-  height: 54px;
+.feedbackIconSuccess {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: rgba(16, 185, 129, 0.15);
   color: var(--color-success);
@@ -255,17 +340,52 @@
   justify-content: center;
 }
 
-.successState h4 {
+.feedbackIconWarn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--color-warning);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedbackTitle {
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
 }
 
-.successState p {
+.feedbackDesc {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  max-width: 340px;
+  max-width: 380px;
   margin: 0;
   line-height: 1.6;
+}
+
+.feedbackActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.draftBox {
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  text-align: left;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  white-space: pre-wrap;
+  max-height: 120px;
+  overflow-y: auto;
 }

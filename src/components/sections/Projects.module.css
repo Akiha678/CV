@@ -227,6 +227,9 @@
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .openCard::before {
@@ -249,6 +252,17 @@
 
 .openCard:hover::before {
   opacity: 1;
+}
+
+.openCard:hover .openName {
+  color: var(--color-primary);
+}
+
+.openCard:hover .linkBtn {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.1);
+  transform: scale(1.08);
 }
 
 .openCardHeader {
@@ -323,12 +337,37 @@
   flex-direction: column;
 }
 
+.openNameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
 .openName {
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-2);
+  margin: 0;
   letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+}
+
+.openVisitHint {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+  opacity: 0.6;
+  transform: translateX(-4px);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.openCard:hover .openVisitHint {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .openDesc {

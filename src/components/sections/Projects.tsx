@@ -157,10 +157,19 @@ export function Projects({ projects }: ProjectsProps) {
 
           <div className={`${styles.grid} ${styles.gridOpenSource}`}>
             {openSourceProjects.map((project) => {
-              const langColor = project.language ? (LANGUAGE_COLORS[project.language] || '#3b82f6') : '#3b82f6'
+              const langColor = project.language ? (LANGUAGE_COLORS[project.language] || '#0284c7') : '#0284c7'
+              const targetUrl = project.url || project.sourceUrl || 'https://github.com/Akiha678'
 
               return (
-                <article key={project.id} className={styles.openCard}>
+                <a
+                  key={project.id}
+                  href={targetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.openCard}
+                  title={`点击在浏览器新标签页打开 ${project.name} 仓库主页`}
+                  aria-label={`查看 ${project.name} GitHub 开源主页`}
+                >
                   <header className={styles.openCardHeader}>
                     <div className={styles.openHeaderLeft}>
                       {project.language && (
@@ -180,22 +189,16 @@ export function Projects({ projects }: ProjectsProps) {
                       )}
                     </div>
 
-                    {project.sourceUrl && (
-                      <a
-                        href={project.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.linkBtn}
-                        aria-label={`查看 ${project.name} GitHub 源码`}
-                        title="直达 GitHub 仓库"
-                      >
-                        <Icon name="github" size={17} />
-                      </a>
-                    )}
+                    <div className={styles.linkBtn} aria-hidden="true" title="直达 GitHub 仓库">
+                      <Icon name="github" size={17} />
+                    </div>
                   </header>
 
                   <div className={styles.openCardBody}>
-                    <h4 className={styles.openName}>{project.name}</h4>
+                    <div className={styles.openNameRow}>
+                      <h4 className={styles.openName}>{project.name}</h4>
+                      <span className={styles.openVisitHint}>访问主页 ↗</span>
+                    </div>
                     <p className={styles.openDesc}>{project.description}</p>
 
                     {project.details && project.details.length > 0 && (
@@ -216,7 +219,7 @@ export function Projects({ projects }: ProjectsProps) {
                       ))}
                     </div>
                   </footer>
-                </article>
+                </a>
               )
             })}
           </div>

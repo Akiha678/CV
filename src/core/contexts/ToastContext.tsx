@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useCallback, type ReactNode } from
 import { Icon } from '@/components/ui'
 import styles from './Toast.module.css'
 
-export type ToastType = 'success' | 'info' | 'error'
+export type ToastType = 'success' | 'info' | 'warning' | 'error'
 
 export interface ToastItem {
   id: string
@@ -40,6 +40,8 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 ? styles.toastSuccess
                 : toast.type === 'error'
                 ? styles.toastError
+                : toast.type === 'warning'
+                ? styles.toastWarning
                 : styles.toastInfo
             }`}
           >
