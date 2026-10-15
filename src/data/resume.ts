@@ -22,7 +22,7 @@ export const resumeData: ResumeData = {
     school: '荆州学院',
     major: '软件工程（本科）',
     graduation: '2027 年 6 月毕业',
-    location: '江浙沪',
+    location: '苏州',
     targetCity: '全国可飞',
     stats: [
       { label: '编程语言', value: 'Kotlin/Dart' },
@@ -293,7 +293,7 @@ export const resumeData: ResumeData = {
   contact: {
     email: 'seanchenxin@dingtalk.com',
     phone: '19108666223',
-    location: '江浙沪',
+    location: '苏州',
     targetCity: '全国可飞',
     webs: [
       { label: 'GitHub: Akiha678', url: 'https://github.com/Akiha678' },

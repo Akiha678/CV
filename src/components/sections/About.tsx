@@ -57,7 +57,7 @@ export function About({ profile, contact }: AboutProps) {
             <div className={`${styles.output} ${styles.outputGrid}`}>
               <div><span className={styles.dim}>Education:</span> {profile.school ?? '荆州学院'} · {profile.major ?? '软件工程（本科）'}</div>
               <div><span className={styles.dim}>Graduation:</span> {profile.graduation ?? '2027年6月毕业'}</div>
-              <div><span className={styles.dim}>Location:</span> {profile.location ?? contact.location ?? '江浙沪'} (期望: {profile.targetCity ?? '全国可飞'})</div>
+              <div><span className={styles.dim}>Location:</span> {profile.location ?? contact.location ?? '苏州'} (期望: {profile.targetCity ?? '全国可飞'})</div>
               <div><span className={styles.dim}>TechStack:</span> Kotlin, Dart, Flutter, Compose, BLE</div>
               <div><span className={styles.dim}>OpenSource:</span> GitHub @Akiha678 (4+ Mobile Repos)</div>
             </div>
