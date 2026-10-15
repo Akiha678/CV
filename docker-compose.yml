@@ -8,7 +8,7 @@ services:
     container_name: cv-portfolio
     restart: always
     ports:
-      # 主机端口:容器端口 (如果 80 端口已被其他服务占用，可按需修改为主机端口如 "8080:80")
-      - "80:80"
+      # 映射主机端口 9092 到容器端口 9092
+      - "9092:9092"
     environment:
       - NODE_ENV=production
