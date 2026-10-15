@@ -39,7 +39,7 @@ export const resumeData: ResumeData = {
   experiences: [
     {
       id: 'exp-1',
-      company: '中科融合（江浙沪）',
+      company: '中科融合（苏州）',
       role: '移动端开发实习生',
       startDate: '2026.06',
       endDate: null,
@@ -88,7 +88,7 @@ export const resumeData: ResumeData = {
       id: 'proj-iris',
       name: 'Ainstec Iris',
       projectType: 'internship',
-      company: '中科融合（江浙沪）',
+      company: '中科融合（苏州）',
       period: '2026.6 – 至今',
       role: '移动端开发',
       category: 'Mobile',
