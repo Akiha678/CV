@@ -85,7 +85,7 @@
   letter-spacing: -0.02em;
 }
 
-:root.dark .nameText {
+:global(.dark) .nameText {
   color: #ffffff;
 }
 
