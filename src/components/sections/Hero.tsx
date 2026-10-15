@@ -158,16 +158,16 @@ export function Hero({ profile, email, phone }: HeroProps) {
             <div className={`${styles.floatingCard} ${styles.floatingCardTop}`}>
               <Icon name="terminal" size={16} className={styles.floatingIcon} />
               <div>
-                <span className={styles.floatingTitle}>Kotlin · Flutter · Compose</span>
-                <span className={styles.floatingSub}>移动端核心研发</span>
+                <span className={styles.floatingTitle}>Jetpack Compose</span>
+                <span className={styles.floatingSub}>原生Android开发</span>
               </div>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardBottom}`}>
               <Icon name="layers" size={16} className={styles.floatingIcon} />
               <div>
-                <span className={styles.floatingTitle}>Android & BLE 硬件通信</span>
-                <span className={styles.floatingSub}>高可靠软硬件联动</span>
+                <span className={styles.floatingTitle}>Flutter</span>
+                <span className={styles.floatingSub}>Flutter跨平台开发</span>
               </div>
             </div>
           </div>

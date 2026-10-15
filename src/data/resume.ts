@@ -1,3 +1,4 @@
+import avatarImg from '@/assets/image/avatar.jpg'
 import type { Contact, Education, Experience, Honor, Profile, Project, Skill } from '@/types/resume'
 
 export interface ResumeData {
@@ -15,9 +16,9 @@ export const resumeData: ResumeData = {
     name: '陈鑫',
     handle: 'SeanChen',
     title: '移动端开发工程师',
-    tagline: '熬夜喝酒写代码，吃饱喝足打贝贝。',
+    tagline: '板凳要坐十年冷，星光不问赶路人',
     bio: '熟练掌握 Kotlin、Dart 编程语言，精通 Flutter 跨平台开发框架，具备丰富的 Android、Flutter 混合开发经验。熟悉 MVVM 及 Clean Architecture 分层架构设计，在 Jetpack Compose、BLE 蓝牙低功耗通信、瓦片地图绘制与协程流响应式开发等领域具备扎实的工业级项目落地能力。',
-    avatarUrl: 'https://avatars.githubusercontent.com/u/153362937?v=4',
+    avatarUrl: avatarImg,
     status: '求职意向：移动端开发工程师',
     school: '荆州学院',
     major: '软件工程（本科）',

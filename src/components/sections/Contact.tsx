@@ -39,7 +39,7 @@ export function Contact({ contact, profile }: ContactProps) {
       <div className={styles.centerContainer}>
         {/* 顶部居中求职简介 */}
         <p className={styles.intro}>
-          求职意向：<strong>移动端开发工程师</strong>（Android / Flutter）。现居常驻：<strong>{contact.location ?? '苏州'}</strong>，期望工作地：<strong>{contact.targetCity ?? '全国可飞'}</strong>。
+          求职意向：<strong>移动端开发工程师</strong>。现居常驻：<strong>{contact.location ?? '苏州'}</strong>，期望工作地：<strong>{contact.targetCity ?? '全国可飞'}</strong>。
         </p>
 
         {/* 核心联络卡片 (2x2 对称美观栅格) */}
