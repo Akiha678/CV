@@ -36,7 +36,7 @@ export function Projects({ projects }: ProjectsProps) {
     <Section
       id="projects"
       title="项目经历与开源作品"
-      subtitle="按业务维度清晰拆分为「企业实习项目」与「GitHub 开源生态」，全面展现移动端工程落地能力。"
+      // subtitle="按业务维度清晰拆分为「企业实习项目」与「GitHub 开源生态」，全面展现移动端工程落地能力。"
       badge="Projects & OpenSource"
       fullWidth
     >
@@ -57,7 +57,7 @@ export function Projects({ projects }: ProjectsProps) {
           onClick={() => setActiveTab('internship')}
         >
           <Icon name="briefcase" size={15} />
-          <span>实习项目 (简历真实落地)</span>
+          <span>实习项目</span>
           <span className={styles.typeTabBadge}>{internshipProjects.length}</span>
         </button>
 
@@ -67,7 +67,7 @@ export function Projects({ projects }: ProjectsProps) {
           onClick={() => setActiveTab('opensource')}
         >
           <Icon name="github" size={15} />
-          <span>开源项目 (GitHub 生态)</span>
+          <span>开源项目</span>
           <span className={styles.typeTabBadge}>{openSourceProjects.length}</span>
         </button>
       </div>
@@ -79,7 +79,7 @@ export function Projects({ projects }: ProjectsProps) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: 'var(--space-5)' }}>
               <Icon name="briefcase" size={20} style={{ color: 'var(--color-primary)' }} />
               <h3 style={{ margin: 0, fontSize: 'var(--text-xl)', fontWeight: 800 }}>企业实习项目经历</h3>
-              <span style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>工业级软硬件联动与自适应分析软件</span>
+              {/* <span style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>工业级软硬件联动与自适应分析软件</span> */}
             </div>
           )}
 

@@ -50,7 +50,7 @@ export function Hero({ profile, email, phone }: HeroProps) {
               <span className={styles.nameText}>{profile.name}</span>
               <span className={styles.handleTag}>({profile.handle})</span>
             </h1>
-            <h2 className={styles.subtitle}>{profile.title}</h2>
+            {profile.title && <h2 className={styles.subtitle}>{profile.title}</h2>}
           </div>
 
           {/* 基本信息标签：学校、学历、毕业时间、期望城市 */}
@@ -65,7 +65,7 @@ export function Hero({ profile, email, phone }: HeroProps) {
             </span>
             <span className={styles.metaPill}>
               <Icon name="location" size={14} />
-              <span>现居：{profile.location ?? '苏州'} · 期望：{profile.targetCity ?? '全国可飞'}</span>
+              <span>现居：{profile.location ?? '江浙沪'} · 期望：{profile.targetCity ?? '全国可飞'}</span>
             </span>
           </div>
 

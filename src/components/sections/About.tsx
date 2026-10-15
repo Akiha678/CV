@@ -16,7 +16,7 @@ export function About({ profile, contact }: AboutProps) {
     <Section
       id="about"
       title="关于我与技术体系"
-      subtitle="移动端开发工程师 · 专注 Android 原生与 Flutter 跨平台架构设计"
+      // subtitle="移动端开发工程师 · 专注 Android 原生与 Flutter 跨平台架构设计"
       badge="About Me"
       fullWidth
     >
@@ -38,7 +38,7 @@ export function About({ profile, contact }: AboutProps) {
               <span className={styles.cmd}>whoami</span>
             </div>
             <p className={styles.output}>
-              &gt; {profile.name} ({profile.handle}) - {profile.title}
+              &gt; {profile.name} ({profile.handle}){profile.title ? ` - ${profile.title}` : ''}
             </p>
 
             <div className={styles.cmdRow}>
@@ -57,7 +57,7 @@ export function About({ profile, contact }: AboutProps) {
             <div className={`${styles.output} ${styles.outputGrid}`}>
               <div><span className={styles.dim}>Education:</span> {profile.school ?? '荆州学院'} · {profile.major ?? '软件工程（本科）'}</div>
               <div><span className={styles.dim}>Graduation:</span> {profile.graduation ?? '2027年6月毕业'}</div>
-              <div><span className={styles.dim}>Location:</span> {profile.location ?? contact.location ?? '苏州'} (期望: {profile.targetCity ?? '全国可飞'})</div>
+              <div><span className={styles.dim}>Location:</span> {profile.location ?? contact.location ?? '江浙沪'} (期望: {profile.targetCity ?? '全国可飞'})</div>
               <div><span className={styles.dim}>TechStack:</span> Kotlin, Dart, Flutter, Compose, BLE</div>
               <div><span className={styles.dim}>OpenSource:</span> GitHub @Akiha678 (4+ Mobile Repos)</div>
             </div>
@@ -74,10 +74,10 @@ export function About({ profile, contact }: AboutProps) {
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>
               <Icon name="sparkles" size={18} className={styles.cardIcon} />
-              移动端核心架构能力
+              移动端开发能力
             </h3>
             <p className={styles.cardText}>
-              熟练掌握 Kotlin 与 Dart，精通 Flutter 跨平台框架，拥有成熟的 Android 与 Flutter 混合开发实战经验。深入理解 MVVM 与 Clean Architecture 分层思想，善于利用 Coroutines / Flow 实现响应式异步编程，具备扎实的 BLE 蓝牙通信、瓦片地图绘制与性能卡顿（Jank Frame / 重组）调优能力。
+              熟练掌握 Kotlin 与 Dart，熟悉 Flutter 跨平台框架，拥有 Android 与 Flutter 混合开发实战经验。深入理解 MVVM 与 Clean Architecture 分层思想，善于利用 Coroutines / Flow 实现响应式异步编程，具备扎实的 BLE 蓝牙通信、瓦片地图绘制与性能卡顿调优能力。
             </p>
           </div>
 
@@ -121,33 +121,6 @@ export function About({ profile, contact }: AboutProps) {
                 <p>System Trace 卡顿分析、瓦片地图异步缓存、组件化解耦</p>
               </div>
             </div>
-          </div>
-
-          {/* 状态快捷信息卡 */}
-          <div className={styles.quickMeta}>
-            <div className={styles.metaChip}>
-              <Icon name="location" size={14} />
-              <span>现居：{profile.location ?? contact.location ?? '苏州'} · 期望：{profile.targetCity ?? '全国可飞'}</span>
-            </div>
-            <div className={styles.metaChip}>
-              <Icon name="mail" size={14} />
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            </div>
-            {contact.phone && (
-              <div className={styles.metaChip}>
-                <Icon name="phone" size={14} />
-                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-              </div>
-            )}
-            <a
-              href="https://github.com/Akiha678"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.metaChip}
-            >
-              <Icon name="github" size={14} />
-              <span>github.com/Akiha678</span>
-            </a>
           </div>
         </div>
       </div>

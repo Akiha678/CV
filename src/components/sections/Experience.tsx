@@ -16,7 +16,7 @@ export function Experience({ experiences, education, honors = [] }: ExperiencePr
     <Section
       id="experience"
       title="工作经历与专业沉淀"
-      subtitle="深入企业移动端开发实战，涵盖 BLE 硬件联动、瓦片地图离线渲染与大型自适应客户端架构。"
+      // subtitle="深入企业移动端开发实战，涵盖 BLE 硬件联动、瓦片地图离线渲染与大型自适应客户端架构。"
       badge="Work & Career"
       fullWidth
     >

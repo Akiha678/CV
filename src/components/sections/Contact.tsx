@@ -32,14 +32,14 @@ export function Contact({ contact, profile }: ContactProps) {
     <Section
       id="contact"
       title="保持联络与合作探讨"
-      subtitle="随时欢迎移动端研发岗位沟通、开源项目探讨或技术交流！"
+      // subtitle="随时欢迎移动端研发岗位沟通、开源项目探讨或技术交流！"
       badge="Get In Touch"
       fullWidth
     >
       <div className={styles.centerContainer}>
         {/* 顶部居中求职简介 */}
         <p className={styles.intro}>
-          求职意向：<strong>移动端开发工程师</strong>。现居常驻：<strong>{contact.location ?? '苏州'}</strong>，期望工作地：<strong>{contact.targetCity ?? '全国可飞'}</strong>。
+          求职意向：<strong>移动端开发工程师</strong>。现居常驻：<strong>{contact.location ?? '江浙沪'}</strong>，期望工作地：<strong>{contact.targetCity ?? '全国可飞'}</strong>。
         </p>
 
         {/* 核心联络卡片 (2x2 对称美观栅格) */}
@@ -136,23 +136,6 @@ export function Contact({ contact, profile }: ContactProps) {
             <Icon name="arrow-up-right" size={18} className={styles.arrowIcon} />
           </a>
         </div>
-
-        {/* 居中状态与坐标胶囊 */}
-        <div className={styles.metaRow}>
-          <div className={styles.miniChip}>
-            <Icon name="location" size={15} />
-            <span>目前常驻：{contact.location ?? '苏州'}</span>
-          </div>
-          <div className={styles.miniChip}>
-            <Icon name="compass" size={15} />
-            <span>求职目标：{contact.targetCity ?? '全国可飞'}</span>
-          </div>
-          <div className={styles.miniChip}>
-            <Icon name="education" size={15} />
-            <span>{profile.school ?? '荆州学院'} · 本科</span>
-          </div>
-        </div>
-
         {/* 居中座右铭卡片 */}
         <div className={styles.quoteTip}>
           <span className={styles.tipDot} />

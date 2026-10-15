@@ -8,7 +8,7 @@ export interface Profile {
   /** GitHub Handle 或昵称 */
   handle?: string
   /** 求职/展示用的职称 */
-  title: string
+  title?: string
   /** 一句话介绍/标语 */
   tagline: string
   /** 个人简介 */

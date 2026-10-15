@@ -15,15 +15,14 @@ export const resumeData: ResumeData = {
   profile: {
     name: '陈鑫',
     handle: 'SeanChen',
-    title: '移动端开发工程师',
     tagline: '板凳要坐十年冷，星光不问赶路人',
-    bio: '熟练掌握 Kotlin、Dart 编程语言，精通 Flutter 跨平台开发框架，具备丰富的 Android、Flutter 混合开发经验。熟悉 MVVM 及 Clean Architecture 分层架构设计，在 Jetpack Compose、BLE 蓝牙低功耗通信、瓦片地图绘制与协程流响应式开发等领域具备扎实的工业级项目落地能力。',
+    bio: 'Android方面主要使用Jetpack Compose + MVVM架构开发，熟悉 ViewModel、Room等常用的Jetpack组件，熟练使用 Kotlin协程、StateFlow、Retrofit等现代Android开发技术。Flutter方面熟悉Provider状态管理，go_router路由框架和跨平台通信机制，能够通过Method Channel实现原生与 Flutter 混合开发。',
     avatarUrl: avatarImg,
     status: '求职意向：移动端开发工程师',
     school: '荆州学院',
     major: '软件工程（本科）',
     graduation: '2027 年 6 月毕业',
-    location: '苏州',
+    location: '江浙沪',
     targetCity: '全国可飞',
     stats: [
       { label: '编程语言', value: 'Kotlin/Dart' },
@@ -40,7 +39,7 @@ export const resumeData: ResumeData = {
   experiences: [
     {
       id: 'exp-1',
-      company: '中科融合（苏州）',
+      company: '中科融合（江浙沪）',
       role: '移动端开发实习生',
       startDate: '2026.06',
       endDate: null,
@@ -89,7 +88,7 @@ export const resumeData: ResumeData = {
       id: 'proj-iris',
       name: 'Ainstec Iris',
       projectType: 'internship',
-      company: '中科融合（苏州）',
+      company: '中科融合（江浙沪）',
       period: '2026.6 – 至今',
       role: '移动端开发',
       category: 'Mobile',
@@ -294,7 +293,7 @@ export const resumeData: ResumeData = {
   contact: {
     email: 'seanchenxin@dingtalk.com',
     phone: '19108666223',
-    location: '苏州',
+    location: '江浙沪',
     targetCity: '全国可飞',
     webs: [
       { label: 'GitHub: Akiha678', url: 'https://github.com/Akiha678' },
