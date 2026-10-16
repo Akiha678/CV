@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createHashRouter, Navigate } from 'react-router-dom'
 import { Layout } from '@/components/layout'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { PageLoading } from '@/components/ui/PageLoading'
@@ -13,7 +13,7 @@ const ContactPage = lazy(() => import('@/pages').then((m) => ({ default: m.Conta
  * 现代应用路由配置
  * 支持按需动态分包加载与容错边界
  */
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: (
