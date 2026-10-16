@@ -93,15 +93,15 @@ export const resumeData: ResumeData = {
       role: '移动端开发',
       category: 'Mobile',
       language: 'Dart',
-      description: '本项目基于 Flutter 跨平台框架，通过 IRIS 固态激光蓝牙设备和 Flutter Plugin 封装 Android BLE SDK 实现智能骑行场景。项目通过 Method Channel 调用原生 SDK 与硬件设备联动，实现了设备控制模块、设备管理模块。',
+      description: '本项目基于 Flutter 跨平台框架，通过 IRIS 激光蓝牙设备和 Flutter Plugin 封装 Android SDK 实现智能骑行场景。项目通过 Platform Channel 调用原生 SDK 与硬件设备联动，实现了从扫描、连接到状态同步的整条链路。',
       tags: ['Flutter', 'Android BLE SDK', 'Method Channel', 'GATT', 'Provider', 'go_router'],
       responsibilities: [
         {
-          title: '硬件设备控制',
-          content: '基于 BLE 直连与本地插件封装实现控制设备能力，统一管理扫描连接、自动重连与状态同步，形成“指令下发 + 状态回传”的闭环控制。',
+          title: '设备扫描连接',
+          content: '负责 BLE 设备扫描与连接：权限/蓝牙前置校验 + 名称前缀过滤实现设备发现，将回调桥接为可超时、可清理的挂起函数，并管理多设备会话与订阅。',
         },
         {
-          title: '硬件设备管理',
+          title: '硬件状态同步',
           content: '封装设备状态快照与监听机制，订阅设备状态流和连接状态流，实时同步电量、设备状态、连接状态等信息到 UI。',
         },
         {
